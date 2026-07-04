@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getRelevantProcesses, UserProfile } from "@/lib/knowledge";
 import { SYSTEM_PROMPT, buildMessages, HistoryMessage } from "@/lib/prompt";
+import { checkRateLimit } from "@/lib/rateLimit";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
@@ -12,12 +13,31 @@ interface AskRequest {
   history?: HistoryMessage[];
 }
 
+function getClientIp(req: NextRequest): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0].trim();
+  return req.headers.get("x-real-ip") ?? "unknown";
+}
+
 export async function POST(req: NextRequest) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
       { error: "Server configuration error: missing API key." },
       { status: 500 }
+    );
+  }
+
+  const { allowed, retryAfterSeconds } = checkRateLimit(getClientIp(req));
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please wait a moment and try again." },
+      {
+        status: 429,
+        headers: retryAfterSeconds
+          ? { "Retry-After": String(retryAfterSeconds) }
+          : undefined,
+      }
     );
   }
 

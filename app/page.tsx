@@ -13,6 +13,16 @@ interface Message {
   error?: boolean;
 }
 
+const MESSAGES_KEY = "scb-messages";
+const PROFILE_KEY = "scb-profile";
+const STALE_MS = 182 * 24 * 60 * 60 * 1000; // ~6 months
+
+function isStale(dateStr: string): boolean {
+  const verified = new Date(dateStr);
+  if (Number.isNaN(verified.getTime())) return false;
+  return Date.now() - verified.getTime() > STALE_MS;
+}
+
 const SUGGESTIONS = [
   "What's my full checklist in order?",
   "What do I need for the Ausländerbehörde?",
@@ -100,12 +110,44 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  // Load saved profile + chat history once on mount.
+  useEffect(() => {
+    try {
+      const savedProfile = localStorage.getItem(PROFILE_KEY);
+      if (savedProfile) {
+        const parsed = JSON.parse(savedProfile);
+        if (parsed.residency === "eu_citizen" || parsed.residency === "non_eu_citizen") {
+          setResidency(parsed.residency);
+        }
+        if (typeof parsed.isStudent === "boolean") setIsStudent(parsed.isStudent);
+      }
+      const savedMessages = localStorage.getItem(MESSAGES_KEY);
+      if (savedMessages) setMessages(JSON.parse(savedMessages));
+    } catch {
+      // ignore corrupt storage
+    } finally {
+      setHydrated(true);
+    }
+  }, []);
+
+  // Persist profile + chat history after the initial load above.
+  useEffect(() => {
+    if (!hydrated) return;
+    localStorage.setItem(PROFILE_KEY, JSON.stringify({ residency, isStudent }));
+  }, [hydrated, residency, isStudent]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
+  }, [hydrated, messages]);
 
   function autoResize() {
     const el = textareaRef.current;
@@ -337,7 +379,13 @@ export default function Home() {
                     <div className="sources-header">
                       <span className="sources-eyebrow">Official Sources</span>
                       {msg.verified && (
-                        <span className="verified-badge">✓ Verified {msg.verified}</span>
+                        isStale(msg.verified) ? (
+                          <span className="verified-badge verified-badge--stale">
+                            ⚠ Checked {msg.verified} — verify with source
+                          </span>
+                        ) : (
+                          <span className="verified-badge">✓ Verified {msg.verified}</span>
+                        )
                       )}
                     </div>
                     <div className="source-chips">

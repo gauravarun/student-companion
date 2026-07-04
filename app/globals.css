@@ -614,6 +614,11 @@ strong { color: var(--tinte); font-weight: 600; }
   white-space: nowrap;
   flex-shrink: 0;
 }
+.verified-badge--stale {
+  color: var(--tinte-2);
+  box-shadow: inset 0 0 0 1.5px var(--blatt), inset 0 0 0 2.5px var(--linie-dark);
+  border-color: var(--linie-dark);
+}
 
 .source-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .source-chip {
