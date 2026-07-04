@@ -1,0 +1,1015 @@
+[
+  {
+    "id": "anmeldung",
+    "title": "Anmeldung (Resident Registration)",
+    "category": "registration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "Mandatory registration with the city authority. Required for opening a bank account, getting a tax ID, signing a mobile contract, and nearly every other official process in Germany.",
+    "deadline": "Within 14 days of moving into your accommodation",
+    "cost": "Free",
+    "prerequisites": [],
+    "documents_required": [
+      "Valid passport or national ID (EU citizens)",
+      "Completed Anmeldungsformular (registration form)",
+      "Wohnungsgeberbestätigung (landlord confirmation form, signed by your landlord)",
+      "Rental contract (recommended, though not always required)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Obtain Wohnungsgeberbestätigung from your landlord",
+        "detail": "Ask your landlord to complete and sign the official landlord confirmation form before your appointment. Without this, the Anmeldung cannot be completed.",
+        "official_link": "https://www.berlin.de/formularverzeichnis/?formular=/labo/zentraler-buergerservice/anmeldung_von_wohnungen.pdf"
+      },
+      {
+        "order": 2,
+        "action": "Download and complete the Anmeldungsformular",
+        "detail": "Fill in your personal details, new address, and previous address on the official form before your appointment to save time.",
+        "official_link": "https://www.berlin.de/formularverzeichnis/?formular=/labo/zentraler-buergerservice/anmeldung_von_wohnungen.pdf"
+      },
+      {
+        "order": 3,
+        "action": "Book an appointment at a Bürgeramt",
+        "detail": "Appointments go fast. Book online via the Berlin service portal. Walk-ins are rarely accepted. Select 'An- oder Ummeldung einer Wohnung' as the service.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 4,
+        "action": "Attend the appointment with all documents",
+        "detail": "Bring your passport (or EU ID), the signed Wohnungsgeberbestätigung, and the completed registration form. The appointment is usually under 10 minutes.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 5,
+        "action": "Receive your Anmeldebestätigung",
+        "detail": "You will be given a registration confirmation (Anmeldebestätigung) immediately. Keep multiple copies — you will need it repeatedly.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      }
+    ],
+    "common_mistakes": [
+      "Not getting the Wohnungsgeberbestätigung from the landlord before the appointment — this is the single most common reason appointments fail.",
+      "Trying to walk in without an appointment — almost never accepted.",
+      "Registering too late (after 14 days) — technically an administrative offence.",
+      "Using a temporary address (e.g., hostel) for registration — only valid residential addresses qualify."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Anmeldung einer Wohnung",
+        "url": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "title": "Registration form (Anmeldungsformular)",
+        "url": "https://www.berlin.de/formularverzeichnis/?formular=/labo/zentraler-buergerservice/anmeldung_von_wohnungen.pdf"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "blocked_account",
+    "title": "Blocked Account (Sperrkonto) for Student Visa",
+    "category": "finance",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "A blocked account (Sperrkonto) proves to the German embassy that you can financially support yourself during your studies. It is a mandatory requirement for a student visa application for non-EU nationals. The required amount is set annually by the German government.",
+    "deadline": "Must be opened and funded before submitting your student visa application at the German embassy in your home country",
+    "cost": "Annual fee varies by provider (Fintiba: ~€89/year; Expatrio: ~€89/year; Deutsche Bank: free but may require in-person visit). The blocked amount itself is returned to you monthly.",
+    "prerequisites": [],
+    "documents_required": [
+      "Valid passport",
+      "Proof of university admission (Zulassungsbescheid) or enrollment",
+      "Personal details for account opening (address, date of birth, etc.)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Confirm the current required amount with the German embassy",
+        "detail": "The blocked amount is updated annually. As of 2025, the required amount is €11,904 per year (€992/month). Always verify the exact current figure on the DAAD or Federal Foreign Office website before opening the account.",
+        "official_link": "https://www.daad.de/en/study-and-research-in-germany/plan-your-studies/financing-your-studies/"
+      },
+      {
+        "order": 2,
+        "action": "Choose a recognized blocked account provider",
+        "detail": "The German embassy accepts accounts from approved providers only. Commonly accepted providers include Fintiba, Expatrio, and Deutsche Bank. Check your specific embassy's list of accepted providers.",
+        "official_link": "https://www.germany-visa.org/student-visa/blocked-account/"
+      },
+      {
+        "order": 3,
+        "action": "Open the blocked account online",
+        "detail": "Most providers allow fully online setup with video identification (VideoIdent). You will need your passport and proof of enrollment or admission.",
+        "official_link": "https://www.fintiba.com/"
+      },
+      {
+        "order": 4,
+        "action": "Transfer the required amount to the blocked account",
+        "detail": "Transfer the full required annual amount (e.g., €11,904) plus any provider fees. The funds will be blocked until you arrive in Germany.",
+        "official_link": "https://www.fintiba.com/"
+      },
+      {
+        "order": 5,
+        "action": "Receive your blocked account certificate",
+        "detail": "Once funded, the provider issues a certificate. Submit this as part of your student visa application at the German embassy.",
+        "official_link": "https://www.daad.de/en/study-and-research-in-germany/plan-your-studies/financing-your-studies/"
+      },
+      {
+        "order": 6,
+        "action": "Access monthly disbursements after arrival",
+        "detail": "After you arrive in Germany and activate your account, you will receive the blocked amount in monthly installments (e.g., €992/month). You need your German address for activation.",
+        "official_link": "https://www.fintiba.com/"
+      }
+    ],
+    "common_mistakes": [
+      "Using a non-approved provider — the embassy will reject the application.",
+      "Transferring the wrong amount — always verify the current year's required amount.",
+      "Not accounting for provider fees in your transfer — the blocked amount must meet the minimum net of fees.",
+      "Forgetting to activate the account after arrival — funds remain locked until activation."
+    ],
+    "official_sources": [
+      {
+        "title": "DAAD – Financing Your Studies",
+        "url": "https://www.daad.de/en/study-and-research-in-germany/plan-your-studies/financing-your-studies/"
+      },
+      {
+        "title": "Federal Foreign Office – Student Visa",
+        "url": "https://www.auswaertiges-amt.de/en/visa-service/buerger/studium"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "student_visa",
+    "title": "Student Visa (Nationales Visum für Studium)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "Non-EU nationals need a national (long-stay, type D) student visa to enter Germany for study. This must be obtained at the German embassy or consulate in your home country before departure — you cannot convert a tourist visa to a student visa inside Germany.",
+    "deadline": "Apply well in advance — embassy processing times can be 4–12 weeks. Apply as soon as you have your university admission letter.",
+    "cost": "€75 (standard national visa fee as of 2025)",
+    "prerequisites": ["blocked_account"],
+    "documents_required": [
+      "Valid passport (valid for at least 6 months beyond intended stay)",
+      "Completed visa application form",
+      "Biometric passport photos",
+      "University admission letter (Zulassungsbescheid) or enrollment confirmation",
+      "Blocked account certificate (Sperrkonto) showing the required financial proof",
+      "Health insurance valid for Germany (travel insurance accepted for visa; proper health insurance needed after arrival)",
+      "Proof of language proficiency (German or English depending on programme)",
+      "CV / motivation letter (required by some embassies)",
+      "Payment of visa fee (€75)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Confirm requirements with your local German embassy",
+        "detail": "Requirements can vary slightly by country. Always check the specific German embassy or consulate website in your home country for the exact document checklist.",
+        "official_link": "https://www.auswaertiges-amt.de/en/about-us/-/199652"
+      },
+      {
+        "order": 2,
+        "action": "Gather all required documents",
+        "detail": "Ensure your blocked account is funded and you have the certificate. Have your university admission letter. Prepare certified translations if required.",
+        "official_link": "https://www.auswaertiges-amt.de/en/visa-service/buerger/studium"
+      },
+      {
+        "order": 3,
+        "action": "Book an appointment at the German embassy/consulate",
+        "detail": "Appointments often have long wait times. Book as early as possible after receiving your admission letter.",
+        "official_link": "https://www.auswaertiges-amt.de/en/about-us/-/199652"
+      },
+      {
+        "order": 4,
+        "action": "Attend the visa interview and submit documents",
+        "detail": "Bring all original documents plus copies. Pay the €75 fee. The officer may ask about your study plans.",
+        "official_link": "https://www.auswaertiges-amt.de/en/visa-service/buerger/studium"
+      },
+      {
+        "order": 5,
+        "action": "Receive your visa and check it carefully",
+        "detail": "Check name, validity dates, and number of entries. Report any errors immediately. The student visa is typically valid for 3 months; you will apply for a residence permit after arrival.",
+        "official_link": "https://www.auswaertiges-amt.de/en/visa-service/buerger/studium"
+      }
+    ],
+    "common_mistakes": [
+      "Applying for a tourist or Schengen visa instead of a national (Type D) student visa — tourist visas cannot be converted.",
+      "Not having the blocked account funded before the visa appointment.",
+      "Underestimating embassy appointment wait times — book early.",
+      "Arriving in Germany with an expired or nearly-expired visa."
+    ],
+    "official_sources": [
+      {
+        "title": "Federal Foreign Office – Studying in Germany (Visa)",
+        "url": "https://www.auswaertiges-amt.de/en/visa-service/buerger/studium"
+      },
+      {
+        "title": "Find your local German embassy",
+        "url": "https://www.auswaertiges-amt.de/en/about-us/-/199652"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "residence_permit_student",
+    "title": "Residence Permit for Students (Aufenthaltstitel §16b AufenthG)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "After arriving on your student visa, you must convert it to a residence permit (Aufenthaltserlaubnis) at the Berlin Foreigners Authority (Ausländerbehörde) before your visa expires. This permit allows you to stay and study legally in Germany long-term.",
+    "deadline": "Before your entry visa expires (typically 3 months after arrival). Book your appointment as soon as you arrive.",
+    "cost": "€100 (standard fee for a residence permit as of 2025; exact amount confirmed at the appointment)",
+    "prerequisites": ["anmeldung", "student_visa"],
+    "documents_required": [
+      "Valid passport with entry visa",
+      "Anmeldebestätigung (registration confirmation from Bürgeramt)",
+      "Current university enrollment certificate (Immatrikulationsbescheinigung)",
+      "Proof of health insurance (public or private, valid in Germany)",
+      "Proof of financial means: blocked account statements or scholarship letter showing sufficient funds",
+      "Biometric passport photos (35x45mm, recent)",
+      "Completed application form (available on the Ausländerbehörde website)",
+      "Fee payment (€100 approximately)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Register your address (Anmeldung) immediately after arrival",
+        "detail": "You need your Anmeldebestätigung for the Ausländerbehörde appointment. Complete your Anmeldung at a Bürgeramt within 14 days of arrival.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 2,
+        "action": "Book an appointment at the Ausländerbehörde Berlin",
+        "detail": "Use the LEA Berlin online booking system. Select 'Aufenthaltserlaubnis für Studierende' (§16b). Appointments fill up quickly — book immediately after arrival.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "order": 3,
+        "action": "Enroll at your university and get your enrollment certificate",
+        "detail": "You need a current Immatrikulationsbescheinigung for the appointment. Ensure you are fully enrolled before the Ausländerbehörde appointment.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "order": 4,
+        "action": "Arrange qualifying health insurance",
+        "detail": "You need either public (gesetzlich) health insurance (e.g., TK, AOK, Barmer) or approved private health insurance. Travel insurance does not count for the permit. Students under 30 are eligible for public student health insurance at a reduced rate.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 5,
+        "action": "Attend the Ausländerbehörde appointment",
+        "detail": "Bring all original documents and copies. Expect a wait. Pay the permit fee. If documents are in order, you will receive a temporary permit (Fiktionsbescheinigung) while the actual permit card is produced.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "order": 6,
+        "action": "Collect your residence permit card",
+        "detail": "The physical permit card (eAT) is mailed to you or must be collected. You will be told at the appointment. The permit is typically valid for the duration of your studies.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      }
+    ],
+    "common_mistakes": [
+      "Not booking the appointment immediately after arrival — appointments fill up weeks in advance and your visa has a 3-month window.",
+      "Bringing private travel insurance instead of qualifying public or private health insurance.",
+      "Not having your university enrollment certificate ready.",
+      "Forgetting the Anmeldebestätigung from Bürgeramt.",
+      "Not bringing the exact required biometric photo format."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de LEA – Aufenthaltserlaubnis zum Studium (§16b)",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "title": "LEA Berlin appointment booking",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "health_insurance_student",
+    "title": "Student Health Insurance (Krankenversicherung)",
+    "category": "insurance",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "Health insurance is mandatory in Germany. For students, it is also required to enroll at a university and to obtain a residence permit (for non-EU nationals). Public health insurance (gesetzliche Krankenversicherung) offers reduced student rates.",
+    "deadline": "Before university enrollment. Non-EU students also need it before their Ausländerbehörde appointment.",
+    "cost": "Public student insurance: approximately €120–€130/month (2025 reduced student rate). Exact rate set annually. Private insurance options exist but require exemption approval.",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "Proof of university enrollment or admission",
+      "Passport or ID",
+      "Anmeldebestätigung (registration confirmation)",
+      "Banking details for direct debit"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Understand your insurance options",
+        "detail": "Students under 30 (or in first 14 semesters) can use public health insurance at the reduced student rate. Over 30 or beyond 14 semesters, you must use private insurance or pay the full public rate. Check exact eligibility on your chosen insurer's website.",
+        "official_link": "https://www.krankenkassen.de/gesetzliche-krankenkassen/krankenkasse-student/"
+      },
+      {
+        "order": 2,
+        "action": "Choose a public health insurer (Krankenkasse)",
+        "detail": "Major student-friendly public insurers in Berlin include Techniker Krankenkasse (TK), AOK Berlin-Brandenburg, Barmer, and DAK-Gesundheit. They all offer the same statutory benefits; services and apps differ.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 3,
+        "action": "Apply online or in person",
+        "detail": "Most public insurers allow fully online applications. You will need your enrollment confirmation or admission letter, passport, and your Berlin address.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 4,
+        "action": "Receive your insurance card (Krankenkassenkarte / eGK)",
+        "detail": "Your electronic health card will be mailed to your registered Berlin address. Bring the insurance confirmation letter to university enrollment and Ausländerbehörde in the meantime.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 5,
+        "action": "Submit insurance confirmation to your university",
+        "detail": "Your insurer will send a confirmation code directly to your university. Some universities require you to enter this yourself in their enrollment portal.",
+        "official_link": "https://www.krankenkassen.de/gesetzliche-krankenkassen/krankenkasse-student/"
+      }
+    ],
+    "common_mistakes": [
+      "Assuming travel insurance covers university enrollment requirements — it does not.",
+      "Missing the age cutoff (30) or semester limit (14) for reduced student rates.",
+      "Not enrolling in insurance before starting the university enrollment process — the confirmation code is needed.",
+      "Choosing private insurance without checking whether your university accepts it for enrollment."
+    ],
+    "official_sources": [
+      {
+        "title": "TK – Health Insurance for Students",
+        "url": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "title": "krankenkassen.de – Student Insurance Overview",
+        "url": "https://www.krankenkassen.de/gesetzliche-krankenkassen/krankenkasse-student/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "bank_account",
+    "title": "Opening a German Bank Account (Girokonto)",
+    "category": "finance",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "A German bank account is needed to receive scholarship payments, pay rent by direct debit, receive your monthly blocked account disbursements, and handle all day-to-day finances. Many landlords and institutions require a German IBAN.",
+    "deadline": "As soon as possible after Anmeldung; ideally within the first few weeks of arrival.",
+    "cost": "Free student accounts available (e.g., DKB, N26, Deutsche Bank student account). Some accounts have monthly fees — check before opening.",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "Valid passport or EU national ID",
+      "Anmeldebestätigung (residence registration confirmation) — required by most banks",
+      "Proof of student enrollment (for student accounts with fee waivers)",
+      "German phone number (required by some online banks for 2FA)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Choose your bank",
+        "detail": "Popular free or low-cost options for students in Berlin: N26 (fully online, instant setup, English app), DKB (free with active use, widely accepted), Commerzbank student account (branch-based). Traditional banks like Deutsche Bank and Sparkasse also offer student accounts.",
+        "official_link": "https://service.berlin.de/dienstleistung/327473/"
+      },
+      {
+        "order": 2,
+        "action": "Apply online or visit a branch",
+        "detail": "N26 and DKB are fully online with video verification (VideoIdent). Branch banks like Sparkasse or Commerzbank require an in-person visit with your documents.",
+        "official_link": "https://www.n26.com/en-de"
+      },
+      {
+        "order": 3,
+        "action": "Complete identity verification",
+        "detail": "Online banks use VideoIdent (video call with ID verification) or PostIdent (verify at a post office). Have your passport and Anmeldebestätigung ready.",
+        "official_link": "https://www.n26.com/en-de"
+      },
+      {
+        "order": 4,
+        "action": "Receive your account details and card",
+        "detail": "Your IBAN will be available immediately after approval for most online banks. Your physical debit card is mailed to your registered address within 5–10 business days.",
+        "official_link": "https://www.n26.com/en-de"
+      }
+    ],
+    "common_mistakes": [
+      "Trying to open a bank account before completing Anmeldung — most banks require the Anmeldebestätigung.",
+      "Using your home country IBAN for German transactions — many German institutions only accept German/SEPA IBANs.",
+      "Not checking monthly fees on non-student accounts.",
+      "Not bringing proof of enrollment when applying for a fee-free student account."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Opening a Bank Account",
+        "url": "https://service.berlin.de/dienstleistung/327473/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "tax_id",
+    "title": "Tax Identification Number (Steueridentifikationsnummer)",
+    "category": "tax",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "Your 11-digit tax ID (Steuer-ID) is automatically assigned after Anmeldung and mailed to your registered address. It is required if you work part-time in Germany, open certain bank accounts, receive scholarships subject to tax, or file a tax return.",
+    "deadline": "Automatically issued within 2–4 weeks of completing Anmeldung. No action needed unless the letter does not arrive.",
+    "cost": "Free",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "No documents required — automatically issued after Anmeldung",
+      "If requesting a reissue: passport, Anmeldebestätigung"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Complete your Anmeldung",
+        "detail": "Your Steuer-ID is automatically assigned by the Federal Central Tax Office (Bundeszentralamt für Steuern) after you register your address. No separate application is needed.",
+        "official_link": "https://www.bzst.de/EN/Individuals/Tax_Identification_Number/tax_identification_number_node.html"
+      },
+      {
+        "order": 2,
+        "action": "Wait for your Steuer-ID letter",
+        "detail": "The letter arrives at your registered address within 2–4 weeks. It contains your permanent 11-digit tax identification number. Keep it safe — this number does not change throughout your life.",
+        "official_link": "https://www.bzst.de/EN/Individuals/Tax_Identification_Number/tax_identification_number_node.html"
+      },
+      {
+        "order": 3,
+        "action": "If the letter does not arrive, request your Steuer-ID online",
+        "detail": "If you haven't received it after 4 weeks, you can request it to be re-sent via the Federal Central Tax Office online form. You need your name, date of birth, and registered address.",
+        "official_link": "https://www.bzst.de/EN/Individuals/Tax_Identification_Number/tax_identification_number_node.html"
+      }
+    ],
+    "common_mistakes": [
+      "Confusing the Steuer-ID (permanent, assigned at birth/first registration) with the Steuernummer (assigned per tax office, changes if you move). Most employers ask for the Steuer-ID.",
+      "Not updating your address at the Bürgeramt if you move — the Steuer-ID letter goes to your registered address.",
+      "Sharing your Steuer-ID unnecessarily — treat it like a sensitive personal number."
+    ],
+    "official_sources": [
+      {
+        "title": "Federal Central Tax Office – Tax Identification Number",
+        "url": "https://www.bzst.de/EN/Individuals/Tax_Identification_Number/tax_identification_number_node.html"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "university_enrollment",
+    "title": "University Enrollment (Immatrikulation)",
+    "category": "education",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "Formal enrollment at your university is required to become a student. It gives you your student ID, access to campus facilities, a discounted semester ticket for public transport, and is required for your residence permit application.",
+    "deadline": "By the enrollment deadline set by your university (typically before the semester starts). Late enrollment may result in losing your place.",
+    "cost": "Semester contribution (Semesterbeitrag): typically €300–€350 per semester at Berlin public universities (covers admin fee + semester transport ticket). Varies by university.",
+    "prerequisites": ["health_insurance_student"],
+    "documents_required": [
+      "Admission letter (Zulassungsbescheid)",
+      "Valid passport or EU national ID",
+      "Health insurance confirmation code from your public insurer (or exemption certificate for private insurance)",
+      "Proof of previous degrees or academic certificates (with certified translations if not in German/English)",
+      "Proof of language proficiency (if required for your programme)",
+      "Payment of semester contribution",
+      "Biometric passport photo (for student ID)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Review your university's specific enrollment requirements",
+        "detail": "Each Berlin university (FU Berlin, HU Berlin, TU Berlin, HTW Berlin, etc.) has its own enrollment process and portal. Check your university's international office or Studierendensekretariat website.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/universities/"
+      },
+      {
+        "order": 2,
+        "action": "Arrange your health insurance and get your confirmation code",
+        "detail": "Your public health insurer automatically notifies your university. Confirm with your insurer that the code has been sent, or look it up in your insurer's online portal.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 3,
+        "action": "Submit enrollment documents online or in person",
+        "detail": "Upload or submit all required documents through your university's enrollment portal. Some universities still require a physical visit to the Studierendensekretariat.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/"
+      },
+      {
+        "order": 4,
+        "action": "Pay the semester contribution",
+        "detail": "Pay by the deadline. Late payment can delay enrollment and your semester ticket.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/"
+      },
+      {
+        "order": 5,
+        "action": "Receive your student ID and enrollment certificate",
+        "detail": "After enrollment is confirmed, you will receive your student ID card and an Immatrikulationsbescheinigung (enrollment certificate). The enrollment certificate is needed for your residence permit.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/"
+      }
+    ],
+    "common_mistakes": [
+      "Not arranging health insurance before trying to enroll — the confirmation code from your insurer is required.",
+      "Missing the enrollment deadline — late enrollment policies vary and you may lose your place.",
+      "Not getting certified translations of foreign academic documents in time.",
+      "Forgetting to re-enroll each semester (Rückmeldung) — enrollment is not automatic."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Universities in Berlin",
+        "url": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/universities/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "ruckmeldung",
+    "title": "Semester Re-enrollment (Rückmeldung)",
+    "category": "education",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "Unlike many countries, enrollment in German universities is not automatic from semester to semester. You must actively re-enroll each semester by paying the semester contribution before the deadline. Missing this can result in exmatriculation (removal from the university) and, for non-EU students, complications with your residence permit renewal.",
+    "deadline": "Varies by university — typically 4–8 weeks before the end of the current semester. Check your university's Studierendensekretariat website for exact dates each semester.",
+    "cost": "Same as initial semester contribution: typically €300–€350 per semester at Berlin public universities. Late re-enrollment may incur an additional fee (~€15–€30 depending on the university).",
+    "prerequisites": ["university_enrollment"],
+    "documents_required": [
+      "No additional documents required — re-enrollment is completed by bank transfer of the semester contribution",
+      "Your student ID number (Matrikelnummer) — used as the payment reference"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Find the re-enrollment deadline each semester",
+        "detail": "Your university will publish the Rückmeldezeitraum (re-enrollment window) for the upcoming semester. It typically opens 6–8 weeks before the current semester ends and closes 4 weeks before the next semester starts. Check your university's online student portal and enable email notifications.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/universities/"
+      },
+      {
+        "order": 2,
+        "action": "Pay the semester contribution within the re-enrollment window",
+        "detail": "Transfer the exact amount to your university's bank account using your Matrikelnummer (student ID number) as the payment reference. The exact amount, IBAN, and reference format are published in your university's student portal each semester.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/universities/"
+      },
+      {
+        "order": 3,
+        "action": "Confirm enrollment status and download new certificate",
+        "detail": "After payment is processed (usually 2–5 business days), log in to your student portal to confirm your enrollment status has been updated. Download the new Immatrikulationsbescheinigung (enrollment certificate) — you will need this for residence permit renewals and employer verification.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/"
+      },
+      {
+        "order": 4,
+        "action": "Activate or download your new semester transport ticket",
+        "detail": "Your semester public transport ticket (Semesterticket) is included in the semester contribution at most Berlin universities. It is either loaded digitally onto your student ID card or available as a downloadable PDF from your student portal.",
+        "official_link": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/"
+      }
+    ],
+    "common_mistakes": [
+      "Missing the re-enrollment deadline — the single most common cause of unexpected exmatriculation.",
+      "Using the wrong payment reference — always use exactly the Matrikelnummer format specified by your university.",
+      "Assuming you will be automatically reminded — proactively check the deadline each semester.",
+      "Non-EU students failing to download the new enrollment certificate before their residence permit renewal appointment."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Universities in Berlin",
+        "url": "https://www.berlin.de/sen/wissenschaft/en/studying-in-berlin/universities/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "student_work_rights",
+    "title": "Working While Studying (Werkstudent Rules)",
+    "category": "employment",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "Most international students work part-time during their studies. Germany has clear rules about how much you can work — especially for non-EU students, exceeding the limit violates your residence permit conditions. Understanding Werkstudent status also saves you money through reduced social insurance contributions.",
+    "deadline": "Rules apply from the start of your studies. Non-EU students must track their working days across the entire calendar year (January–December).",
+    "cost": "No separate permit or fee within the allowed limits. Werkstudent status means you pay reduced social insurance contributions (no unemployment insurance, no long-term care insurance).",
+    "prerequisites": ["university_enrollment"],
+    "documents_required": [
+      "Current enrollment certificate (Immatrikulationsbescheinigung) — required by all employers to confirm student status",
+      "Tax ID (Steueridentifikationsnummer) — required by all employers",
+      "Social insurance number (Sozialversicherungsnummer) — issued automatically when you first work in Germany",
+      "For non-EU students: residence permit (§16b eAT card) — employer needs to confirm work is permitted"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Know your work allowance based on your residency status",
+        "detail": "EU citizens: no restriction on working hours (free movement of workers). Non-EU students under §16b AufenthG: allowed to work 120 full days or 240 half days (4 hours or fewer) per calendar year without additional approval. Your residence permit will state whether work is permitted. Exceeding 120/240 days requires prior approval from the Bundesagentur für Arbeit.",
+        "official_link": "https://www.make-it-in-germany.com/en/working-in-germany/living/working-while-studying"
+      },
+      {
+        "order": 2,
+        "action": "Confirm Werkstudent eligibility with your employer",
+        "detail": "You qualify as a Werkstudent (and pay reduced social insurance) if you work a maximum of 20 hours per week during the semester. During semester breaks (semester-freie Zeit), you may work more than 20 hours. Your employer handles the Werkstudent registration with the social insurance system.",
+        "official_link": "https://www.make-it-in-germany.com/en/working-in-germany/living/working-while-studying"
+      },
+      {
+        "order": 3,
+        "action": "Provide required documents to your employer on day one",
+        "detail": "Give your employer your current enrollment certificate, tax ID, and bank details for payroll. Non-EU students should also provide a copy of their residence permit. Your employer will register you with the pension insurance and provide payslips each month.",
+        "official_link": "https://www.bundesagentur.de/"
+      },
+      {
+        "order": 4,
+        "action": "Track your working days if you are a non-EU student",
+        "detail": "Keep your own record of full days and half days worked across all jobs in the calendar year. 120 full days or 240 half days is the combined annual limit. Exceeding this without Bundesagentur für Arbeit approval is a violation of your §16b permit conditions.",
+        "official_link": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Studium/studium-node.html"
+      },
+      {
+        "order": 5,
+        "action": "Consider filing an annual income tax return",
+        "detail": "If your annual income exceeds the tax-free allowance (Grundfreibetrag — €11,784 in 2024; verify the current year's figure with the Finanzamt), you must file a tax return. Even below this threshold, filing is often worthwhile as students frequently receive a refund due to taxes withheld during the year.",
+        "official_link": "https://www.bzst.de/EN/Individuals/Tax_Identification_Number/tax_identification_number_node.html"
+      }
+    ],
+    "common_mistakes": [
+      "Non-EU students exceeding the 120/240-day annual limit — this can jeopardise your residence permit.",
+      "Not providing a current enrollment certificate to the employer — required to activate Werkstudent reduced insurance rates.",
+      "Assuming freelance/self-employed work is automatically permitted — non-EU students need a separate permit for any self-employment.",
+      "Not filing a tax return when entitled to a refund — many students overpay income tax throughout the year."
+    ],
+    "official_sources": [
+      {
+        "title": "Make it in Germany – Working While Studying",
+        "url": "https://www.make-it-in-germany.com/en/working-in-germany/living/working-while-studying"
+      },
+      {
+        "title": "BAMF – Studying in Germany",
+        "url": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Studium/studium-node.html"
+      },
+      {
+        "title": "Federal Employment Agency (Bundesagentur für Arbeit)",
+        "url": "https://www.bundesagentur.de/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "post_study_job_seeker",
+    "title": "Post-Graduation Job Seeker Permit (§20 AufenthG)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "After completing a German degree (or a degree recognised by Germany), non-EU nationals can apply for an 18-month permit specifically to search for a job that matches their qualification. This is the standard legal bridge between finishing your studies and starting your career in Germany. It must be applied for before your current student residence permit expires.",
+    "deadline": "Apply before your current §16b student residence permit expires. LEA Berlin appointments fill up weeks in advance — book your appointment as soon as you have a graduation date in sight.",
+    "cost": "Approximately €100 (standard residence permit fee as of 2025; confirm the exact amount at your appointment)",
+    "prerequisites": ["residence_permit_student"],
+    "documents_required": [
+      "Valid passport",
+      "Current Anmeldebestätigung (must reflect your current address)",
+      "Official degree certificate or university letter confirming degree completion (not just an enrollment certificate)",
+      "Proof of sufficient financial means to cover 18 months without employment (blocked account, savings statement, or scholarship letter — the LEA sets the minimum required amount)",
+      "Proof of valid health insurance in Germany (student insurance ends upon exmatriculation — you must transition to a new plan)",
+      "Biometric passport photos (35x45mm, recent)",
+      "Fee payment"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Obtain official confirmation of degree completion from your university",
+        "detail": "Get an official letter or preliminary degree certificate from your Prüfungsamt (examination office) confirming that you have successfully completed your programme. This is different from an enrollment certificate — it must confirm completion, not ongoing study.",
+        "official_link": "https://www.make-it-in-germany.com/en/visa-residence/types/study/job-seeking"
+      },
+      {
+        "order": 2,
+        "action": "Book your LEA appointment 2–3 months before your current permit expires",
+        "detail": "Use the LEA Berlin online booking system and select the service for job-seeking after studies. Do not wait until the last month — Berlin appointments are typically booked out 4–8 weeks in advance. Book as soon as you have a graduation date.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 3,
+        "action": "Arrange new health insurance before exmatriculation",
+        "detail": "Your public student health insurance (gesetzliche Krankenversicherung at the student rate) ends when you exmatriculate from your university. You must transition to standard public insurance or private insurance before your LEA appointment. Contact your insurer as soon as you know your exmatriculation date.",
+        "official_link": "https://www.make-it-in-germany.com/en/visa-residence/types/study/job-seeking"
+      },
+      {
+        "order": 4,
+        "action": "Prepare proof of financial means",
+        "detail": "You must show you can support yourself for 18 months without regular employment income. The LEA will tell you the current minimum required amount. Acceptable evidence includes a funded blocked account, bank statements, or an active scholarship letter.",
+        "official_link": "https://www.make-it-in-germany.com/en/visa-residence/types/study/job-seeking"
+      },
+      {
+        "order": 5,
+        "action": "Attend your LEA appointment",
+        "detail": "Bring all originals and copies. Pay the fee. You will receive a Fiktionsbescheinigung (fiction certificate) allowing you to stay legally while the permit card is produced. The eAT card will be mailed or available for collection at the LEA.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 6,
+        "action": "Transition to a work permit once you have a job offer",
+        "detail": "Once you find employment matching your qualification, apply for an Aufenthaltserlaubnis zur Beschäftigung (§18 AufenthG) or EU Blue Card (§18g AufenthG) before the 18-month job-seeker permit expires. You cannot extend the §20 permit beyond 18 months.",
+        "official_link": "https://www.make-it-in-germany.com/en/visa-residence/types/study/job-seeking"
+      }
+    ],
+    "common_mistakes": [
+      "Booking the LEA appointment too late — Berlin appointments fill up 4–8 weeks out, and your student permit has a hard expiry.",
+      "Presenting an enrollment certificate instead of a degree completion certificate — the LEA needs confirmation that your studies are finished.",
+      "Forgetting to transition health insurance after exmatriculation — student insurance ends automatically.",
+      "Exceeding the 10-hours/week limit for unrelated work during the job-seeker period without checking current rules.",
+      "Letting the 18-month permit expire without converting to a work permit — the §20 permit cannot be extended."
+    ],
+    "official_sources": [
+      {
+        "title": "Make it in Germany – Job Seeker Visa After Studies",
+        "url": "https://www.make-it-in-germany.com/en/visa-residence/types/study/job-seeking"
+      },
+      {
+        "title": "LEA Berlin – Appointment Booking",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "title": "German Residence Act §20 AufenthG",
+        "url": "https://www.gesetze-im-internet.de/aufenthg/__20.html"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "rundfunkbeitrag",
+    "title": "Broadcasting Fee Registration (Rundfunkbeitrag)",
+    "category": "registration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "Every household in Germany must pay the Rundfunkbeitrag (public broadcasting contribution) regardless of whether you own a TV or radio. Students are not automatically exempt — but BAföG recipients and certain social benefit recipients can apply for a full exemption. Ignoring it leads to debt and penalty notices.",
+    "deadline": "Register from the date you move into your accommodation. Contributions are owed from your move-in date even if you register late.",
+    "cost": "€18.36 per month per household (as of 2025; verify the current rate at rundfunkbeitrag.de as it is set by broadcasting authorities and may change). Billed quarterly: €55.08 per quarter. Full exemption available for BAföG recipients.",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "Your name and registered Berlin address",
+      "Bank details for SEPA direct debit (or you can pay quarterly by transfer)",
+      "For exemption: current BAföG notice (Bewilligungsbescheid) or proof of qualifying social benefit"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Check whether your household is already covered",
+        "detail": "If you share a flat and one flatmate already pays the Rundfunkbeitrag for the shared address, no additional payment is needed from you. One contribution covers the entire household at one address — not per person.",
+        "official_link": "https://www.rundfunkbeitrag.de/"
+      },
+      {
+        "order": 2,
+        "action": "Register your household at rundfunkbeitrag.de",
+        "detail": "Register online with your name, address, and bank details. You will receive a Beitragsnummer (contributor number) — keep this for all future correspondence, exemption applications, and cancellations.",
+        "official_link": "https://www.rundfunkbeitrag.de/"
+      },
+      {
+        "order": 3,
+        "action": "Apply for exemption if you receive BAföG or qualifying benefits",
+        "detail": "BAföG recipients are entitled to a full exemption. Apply via the exemption form on rundfunkbeitrag.de and upload your current BAföG notice. The exemption covers the duration of your BAföG entitlement and must be renewed when your BAföG period ends.",
+        "official_link": "https://www.rundfunkbeitrag.de/"
+      },
+      {
+        "order": 4,
+        "action": "Cancel when you move out or leave Germany",
+        "detail": "When you deregister (Abmeldung) or move to a new address, cancel or update your Rundfunkbeitrag registration online using your Beitragsnummer. Contributions continue until you formally cancel.",
+        "official_link": "https://www.rundfunkbeitrag.de/"
+      }
+    ],
+    "common_mistakes": [
+      "Not registering until receiving an enforcement notice — contributions are owed from move-in date, not registration date.",
+      "Each flatmate registering separately — only one payment per household is needed.",
+      "Forgetting to renew the BAföG exemption when the BAföG entitlement ends — arrears will be charged.",
+      "Not cancelling the contribution when moving out — charges continue until formal cancellation."
+    ],
+    "official_sources": [
+      {
+        "title": "Rundfunkbeitrag – Official Website",
+        "url": "https://www.rundfunkbeitrag.de/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "ummeldung",
+    "title": "Change of Address Registration (Ummeldung)",
+    "category": "registration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "If you move to a new address in Berlin or elsewhere in Germany, you must legally update your registration within 14 days. Your residence permit correspondence (for non-EU students), tax ID letters, health insurance card, and bank post are all tied to your registered address — an outdated address causes problems across all of these.",
+    "deadline": "Within 14 days of moving into the new accommodation",
+    "cost": "Free",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "Valid passport or EU national ID",
+      "Completed Anmeldungsformular (same registration form as initial Anmeldung — fill in new address)",
+      "Wohnungsgeberbestätigung (landlord confirmation form) — signed by your new landlord"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Obtain the Wohnungsgeberbestätigung from your new landlord",
+        "detail": "Ask your new landlord to complete and sign the landlord confirmation form before your Bürgeramt appointment. This is the same requirement as the initial Anmeldung and is the most common reason appointments fail.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 2,
+        "action": "Book a Bürgeramt appointment for 'An- oder Ummeldung einer Wohnung'",
+        "detail": "Book online at service.berlin.de. Select 'An- oder Ummeldung einer Wohnung'. The same service handles both initial registrations and address changes. Appointments go quickly — book as soon as you know your move-in date.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 3,
+        "action": "Attend the appointment and receive your updated Anmeldebestätigung",
+        "detail": "Bring your passport, signed Wohnungsgeberbestätigung, and the completed registration form. You will receive an updated Anmeldebestätigung with your new address immediately — this is the document most institutions require.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      },
+      {
+        "order": 4,
+        "action": "Notify all relevant authorities and service providers of your new address",
+        "detail": "Update your address with: your bank, health insurer, university, employer (if applicable), Ausländerbehörde (critical for non-EU students — all permit correspondence is sent to your registered address), Rundfunkbeitrag, and the Finanzamt. Your Steuer-ID remains the same.",
+        "official_link": "https://service.berlin.de/dienstleistung/120686/"
+      }
+    ],
+    "common_mistakes": [
+      "Not getting the Wohnungsgeberbestätigung from the new landlord before the appointment.",
+      "Non-EU students not notifying the Ausländerbehörde — all official permit correspondence goes to your registered address.",
+      "Not updating your health insurer address — your insurance card and renewal letters are sent by post.",
+      "Assuming your bank automatically receives the update — banks must be notified separately."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – An- oder Ummeldung einer Wohnung",
+        "url": "https://service.berlin.de/dienstleistung/120686/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "abmeldung",
+    "title": "Deregistration When Leaving Germany (Abmeldung)",
+    "category": "registration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["eu_citizen", "non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "If you are leaving Germany permanently, or moving abroad for more than 6 months, you must officially deregister your address. Failing to do so leads to continued obligations (e.g. Rundfunkbeitrag charges) and complicates future re-entry and re-registration in Germany.",
+    "deadline": "Can be submitted up to 1 week before departure; must be done within 2 weeks of moving out. Cannot be submitted more than 1 week in advance.",
+    "cost": "Free",
+    "prerequisites": ["anmeldung"],
+    "documents_required": [
+      "Valid passport or EU national ID",
+      "Completed Abmeldungsformular (deregistration form) — available at any Bürgeramt or for download at berlin.de"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Download the Abmeldungsformular and complete it",
+        "detail": "The deregistration form is available on berlin.de or at any Bürgeramt. Fill in your current registered address and your destination address abroad (you can write 'abroad' / 'Ausland' if the exact address is not yet known).",
+        "official_link": "https://service.berlin.de/dienstleistung/120905/"
+      },
+      {
+        "order": 2,
+        "action": "Submit the form in person, by post, or by email",
+        "detail": "Unlike Anmeldung, Abmeldung does not require an appointment at most Berlin Bürgerämter. You can walk in, send the signed form by post to any Bürgeramt, or check whether your local office accepts email submissions.",
+        "official_link": "https://service.berlin.de/dienstleistung/120905/"
+      },
+      {
+        "order": 3,
+        "action": "Receive and keep your Abmeldebestätigung",
+        "detail": "You will receive a deregistration confirmation (Abmeldebestätigung). Keep this document — it may be required by your home country's authorities, foreign pension offices (for a German pension refund application), or future German visa applications.",
+        "official_link": "https://service.berlin.de/dienstleistung/120905/"
+      },
+      {
+        "order": 4,
+        "action": "Cancel or close related obligations",
+        "detail": "Cancel your Rundfunkbeitrag (broadcasting fee) using your Beitragsnummer. Close or transition your German bank account. Inform your health insurer. Non-EU students: also notify the Ausländerbehörde (LEA Berlin) of your departure, as Bürgeramt deregistration does not automatically inform the LEA.",
+        "official_link": "https://service.berlin.de/dienstleistung/120905/"
+      }
+    ],
+    "common_mistakes": [
+      "Not cancelling the Rundfunkbeitrag after Abmeldung — charges continue until formally cancelled.",
+      "Submitting the form more than 1 week before departure — it is not accepted that early.",
+      "Non-EU students not notifying the Ausländerbehörde separately — the Bürgeramt Abmeldung does not inform the LEA.",
+      "Not keeping the Abmeldebestätigung — required for pension refund applications and some future visa processes."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Abmeldung einer Wohnung",
+        "url": "https://service.berlin.de/dienstleistung/120905/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  },
+  {
+    "id": "residence_permit_extension",
+    "title": "Student Residence Permit Extension (Verlängerung §16b AufenthG)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": true
+    },
+    "why_it_matters": "If your studies take longer than the validity of your current residence permit (common in longer programmes or after taking additional semesters), you must apply for an extension before the permit expires. Remaining in Germany after permit expiry without having applied for an extension is a legal violation and can damage future immigration applications.",
+    "deadline": "Apply at least 6–8 weeks before your current permit's expiry date (Gültig bis on your eAT card). Do not wait until the last month — LEA Berlin appointments are typically booked out 4–8 weeks in advance.",
+    "cost": "Approximately €96–€100 (standard extension fee as of 2025; exact amount confirmed at the appointment)",
+    "prerequisites": ["residence_permit_student", "ruckmeldung"],
+    "documents_required": [
+      "Valid passport",
+      "Current eAT residence permit card",
+      "Current Anmeldebestätigung (must reflect your current registered address)",
+      "Current university enrollment certificate (Immatrikulationsbescheinigung) for the upcoming semester",
+      "Proof of academic progress (official transcript of records / Notenspiegel or study progress letter from your university)",
+      "Proof of continued financial means (blocked account statements, bank statements, or scholarship letter)",
+      "Proof of valid health insurance",
+      "Biometric passport photos (35x45mm, recent)",
+      "Fee payment"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Note your permit's expiry date and book an LEA appointment immediately",
+        "detail": "Check the Gültig bis date on your eAT card. Book your Ausländerbehörde appointment 6–8 weeks before that date. Use the LEA Berlin online booking system and select the extension of your §16b student residence permit. If no appointment is available in time, contact the LEA directly — applying before expiry creates a Fiktionswirkung (legal fiction) that allows you to stay while the extension is processed.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 2,
+        "action": "Complete your Rückmeldung and obtain a current enrollment certificate",
+        "detail": "You need an Immatrikulationsbescheinigung for the semester in which your appointment falls. Make sure your re-enrollment is completed and the certificate is downloaded and printed before the appointment.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "order": 3,
+        "action": "Prepare proof of academic progress",
+        "detail": "The Ausländerbehörde requires evidence that your studies are progressing. Request an official transcript (Notenspiegel) or a study progress letter from your Prüfungsamt or international office. Requirements vary — check the current LEA document list before your appointment.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "order": 4,
+        "action": "Attend the LEA appointment with all documents",
+        "detail": "Bring all originals and copies. Pay the extension fee. If documents are in order, the officer will extend your permit — typically until your expected programme completion date. You will receive a Fiktionsbescheinigung while the new eAT card is produced.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      }
+    ],
+    "common_mistakes": [
+      "Booking the appointment too late — 4–8 week wait times are normal in Berlin.",
+      "Not having a current semester enrollment certificate at the time of the appointment.",
+      "Presenting only an enrollment certificate without academic progress proof — the LEA commonly asks for both.",
+      "Not checking your registered address is current — permit correspondence goes to your Anmeldebestätigung address.",
+      "Assuming the permit auto-renews — it never does."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de LEA – Aufenthaltserlaubnis zum Studium (§16b)",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/anliegen/322298-280132-aufenthaltserlaubnis-zum-studium-1.html"
+      },
+      {
+        "title": "LEA Berlin – Appointment Booking",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      }
+    ],
+    "last_verified": "2025-03-01",
+    "verification_status": "verified"
+  }
+]
