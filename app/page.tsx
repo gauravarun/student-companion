@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import type { OfficialSource } from "@/lib/knowledge";
+import React, { useState, useRef, useEffect, useMemo } from "react";
+import { getRelevantProcesses, type OfficialSource } from "@/lib/knowledge";
 
 type ResidencyStatus = "eu_citizen" | "non_eu_citizen";
 
@@ -15,6 +15,7 @@ interface Message {
 
 const MESSAGES_KEY = "scb-messages";
 const PROFILE_KEY = "scb-profile";
+const CHECKLIST_KEY = "scb-checklist-done";
 const STALE_MS = 182 * 24 * 60 * 60 * 1000; // ~6 months
 
 function isStale(dateStr: string): boolean {
@@ -111,8 +112,30 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [view, setView] = useState<"chat" | "checklist">("chat");
+  const [doneSteps, setDoneSteps] = useState<Set<string>>(new Set());
   const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const processes = useMemo(
+    () => getRelevantProcesses({ city: "berlin", residency_status: residency, is_student: isStudent }),
+    [residency, isStudent]
+  );
+  const totalSteps = processes.reduce((acc, p) => acc + p.steps.length, 0);
+  const doneCount = processes.reduce(
+    (acc, p) => acc + p.steps.filter((s) => doneSteps.has(`${p.id}:${s.order}`)).length,
+    0
+  );
+  const checklistPct = totalSteps ? Math.round((doneCount / totalSteps) * 100) : 0;
+
+  function toggleStep(key: string) {
+    setDoneSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -131,6 +154,8 @@ export default function Home() {
       }
       const savedMessages = localStorage.getItem(MESSAGES_KEY);
       if (savedMessages) setMessages(JSON.parse(savedMessages));
+      const savedChecklist = localStorage.getItem(CHECKLIST_KEY);
+      if (savedChecklist) setDoneSteps(new Set(JSON.parse(savedChecklist)));
     } catch {
       // ignore corrupt storage
     } finally {
@@ -138,7 +163,7 @@ export default function Home() {
     }
   }, []);
 
-  // Persist profile + chat history after the initial load above.
+  // Persist profile + chat history + checklist after the initial load above.
   useEffect(() => {
     if (!hydrated) return;
     localStorage.setItem(PROFILE_KEY, JSON.stringify({ residency, isStudent }));
@@ -148,6 +173,11 @@ export default function Home() {
     if (!hydrated) return;
     localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
   }, [hydrated, messages]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    localStorage.setItem(CHECKLIST_KEY, JSON.stringify(Array.from(doneSteps)));
+  }, [hydrated, doneSteps]);
 
   function autoResize() {
     const el = textareaRef.current;
@@ -324,17 +354,107 @@ export default function Home() {
             <span className="topbar-sep">·</span>
             <span className="profile-chip chip--violet chip--berlin">Berlin</span>
           </div>
-          <button
-            type="button"
-            className="clear-btn"
-            onClick={() => setMessages([])}
-            disabled={messages.length === 0}
-          >
-            Clear chat
-          </button>
+          <div className="topbar-right">
+            <div className="view-toggle">
+              <button
+                type="button"
+                className={`view-tab${view === "chat" ? " view-tab--active" : ""}`}
+                onClick={() => setView("chat")}
+              >
+                Chat
+              </button>
+              <button
+                type="button"
+                className={`view-tab${view === "checklist" ? " view-tab--active" : ""}`}
+                onClick={() => setView("checklist")}
+              >
+                Checklist
+              </button>
+            </div>
+            <button
+              type="button"
+              className="clear-btn"
+              onClick={() => setMessages([])}
+              disabled={messages.length === 0}
+            >
+              Clear chat
+            </button>
+          </div>
         </div>
 
+        {/* Checklist */}
+        {view === "checklist" && (
+          <div className="checklist-view">
+            <div className="checklist-header">
+              <div>
+                <h2 className="checklist-title">Your Checklist</h2>
+                <p className="checklist-sub">{doneCount} of {totalSteps} steps completed</p>
+              </div>
+              <button
+                type="button"
+                className="clear-btn"
+                onClick={() => setDoneSteps(new Set())}
+                disabled={doneSteps.size === 0}
+              >
+                Reset checklist
+              </button>
+            </div>
+            <div className="checklist-progress-track">
+              <div className="checklist-progress-fill" style={{ width: `${checklistPct}%` }} />
+            </div>
+
+            {processes.length === 0 && (
+              <p className="checklist-empty">No processes match this profile yet.</p>
+            )}
+
+            {processes.map((p) => {
+              const stepsDone = p.steps.filter((s) => doneSteps.has(`${p.id}:${s.order}`)).length;
+              const complete = p.steps.length > 0 && stepsDone === p.steps.length;
+              return (
+                <div key={p.id} className={`checklist-card${complete ? " checklist-card--done" : ""}`}>
+                  <div className="checklist-card-header">
+                    <h3 className="checklist-card-title">{p.title}</h3>
+                    <span className="checklist-card-count">{stepsDone}/{p.steps.length}</span>
+                  </div>
+                  <p className="checklist-card-meta">Deadline: {p.deadline} · Cost: {p.cost}</p>
+                  <div className="checklist-steps">
+                    {p.steps.map((s) => {
+                      const key = `${p.id}:${s.order}`;
+                      const checked = doneSteps.has(key);
+                      return (
+                        <label
+                          key={key}
+                          className={`checklist-step${checked ? " checklist-step--done" : ""}`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => toggleStep(key)}
+                          />
+                          <span className="checklist-step-text">
+                            <strong>{s.action}</strong> — {s.detail}
+                          </span>
+                          <a
+                            href={s.official_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="checklist-step-link"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalIcon />
+                          </a>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Messages */}
+        {view === "chat" && (
         <div className="chat-messages">
           {messages.length === 0 && !loading && (
             <div className="chat-empty">
@@ -418,8 +538,10 @@ export default function Home() {
 
           <div ref={bottomRef} />
         </div>
+        )}
 
         {/* Input */}
+        {view === "chat" && (
         <div className="input-bar">
           <div className="input-wrap">
             <textarea
@@ -446,6 +568,7 @@ export default function Home() {
             <span className="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</span>
           </div>
         </div>
+        )}
 
       </div>
     </div>
