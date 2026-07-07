@@ -51,14 +51,21 @@ function inlineBold(text: string): React.ReactNode {
 
 function renderText(text: string): React.ReactNode[] {
   return text.split("\n").map((line, i) => {
-    if (line.startsWith("### "))
-      return <h3 key={i} className="md-h3">{line.slice(4)}</h3>;
+    // Gemini often indents nested bullets/steps with leading whitespace to
+    // signal nesting under a parent item. We render everything at one visual
+    // level, so classify by the trimmed line — otherwise indented lines miss
+    // every check below and fall through to the plain-paragraph branch,
+    // leaving their literal "*"/"-" marker visible instead of being styled.
+    const trimmed = line.trimStart();
 
-    if (line.startsWith("## ") || line.startsWith("# "))
-      return <h2 key={i} className="md-h2">{line.replace(/^#{1,3} /, "")}</h2>;
+    if (trimmed.startsWith("### "))
+      return <h3 key={i} className="md-h3">{inlineBold(trimmed.slice(4))}</h3>;
+
+    if (trimmed.startsWith("## ") || trimmed.startsWith("# "))
+      return <h2 key={i} className="md-h2">{inlineBold(trimmed.replace(/^#{1,3} /, ""))}</h2>;
 
     // Numbered steps — extract number for amber badge
-    const stepMatch = line.match(/^(\d+)\.\s*(.*)/);
+    const stepMatch = trimmed.match(/^(\d+)\.\s*(.*)/);
     if (stepMatch) {
       return (
         <p key={i} className="md-step">
@@ -69,19 +76,19 @@ function renderText(text: string): React.ReactNode[] {
     }
 
     // Bullet points — cyan dot
-    if (line.startsWith("- ") || line.startsWith("* ")) {
+    if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
       return (
         <p key={i} className="md-bullet">
           <span className="bullet-dot">▸</span>
-          <span>{inlineBold(line.slice(2))}</span>
+          <span>{inlineBold(trimmed.slice(2))}</span>
         </p>
       );
     }
 
-    if (line.trim() === "---") return <hr key={i} className="md-hr" />;
-    if (line.trim() === "")   return <div key={i} className="md-gap" />;
+    if (trimmed === "---") return <hr key={i} className="md-hr" />;
+    if (trimmed === "")   return <div key={i} className="md-gap" />;
 
-    return <p key={i} className="md-p">{inlineBold(line)}</p>;
+    return <p key={i} className="md-p">{inlineBold(trimmed)}</p>;
   });
 }
 
