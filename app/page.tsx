@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
+import * as Sentry from "@sentry/nextjs";
 import { getRelevantProcesses, type OfficialSource } from "@/lib/knowledge";
 
 type ResidencyStatus = "eu_citizen" | "non_eu_citizen";
@@ -33,6 +34,37 @@ const SUGGESTIONS = [
   "What happens after graduation?",
   "How do I extend my residence permit?",
 ];
+
+const REPORT_EMAIL = "gauravarun21@gmail.com";
+
+function buildReportMailto(
+  answer: Message,
+  question: string | undefined,
+  profileDesc: string
+): string {
+  const excerpt = answer.text.length > 400 ? answer.text.slice(0, 400) + "…" : answer.text;
+  const sourceLines = (answer.sources ?? []).map((s) => `- ${s.title}: ${s.url}`).join("\n");
+  const body = [
+    `Question asked: ${question ?? "(not available)"}`,
+    `Profile: ${profileDesc}`,
+    answer.verified ? `Verified date shown: ${answer.verified}` : null,
+    "",
+    "Answer received:",
+    excerpt,
+    sourceLines ? `\nSources cited:\n${sourceLines}` : null,
+    "",
+    "What's wrong with this answer?",
+    "(describe here)",
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+
+  const params = new URLSearchParams({
+    subject: "Student Companion Berlin — issue report",
+    body,
+  });
+  return `mailto:${REPORT_EMAIL}?${params.toString()}`;
+}
 
 function inlineBold(text: string): React.ReactNode {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -111,6 +143,18 @@ function ClearIcon() {
         d="M2 2l8 8m0-8l-8 8"
         stroke="currentColor" strokeWidth="1.4"
         strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FlagIcon() {
+  return (
+    <svg className="report-link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none">
+      <path
+        d="M2 9V1.5c0-.3.2-.5.5-.5h4.7c.4 0 .6.4.4.7L6.5 3.5l1.1 1.8c.2.3 0 .7-.4.7H2.5v3"
+        stroke="currentColor" strokeWidth="1.2"
+        strokeLinecap="round" strokeLinejoin="round"
       />
     </svg>
   );
@@ -258,6 +302,7 @@ export default function Home() {
       }
     } catch (err) {
       console.error("[SCB]", err);
+      Sentry.captureException(err);
       const netErrMsg: Message = {
         role: "assistant",
         text: "Network error — please check your connection.",
@@ -568,6 +613,19 @@ export default function Home() {
                       This is general guidance, not legal or immigration advice.
                     </p>
                   </div>
+                )}
+
+                {msg.role === "assistant" && !msg.error && (
+                  <a
+                    className="report-link"
+                    href={buildReportMailto(
+                      msg,
+                      messages[i - 1]?.role === "user" ? messages[i - 1].text : undefined,
+                      `${residencyLabel}, ${isStudent ? "Student" : "Non-student"}, Berlin`
+                    )}
+                  >
+                    <FlagIcon /> Report an issue with this answer
+                  </a>
                 )}
               </div>
 

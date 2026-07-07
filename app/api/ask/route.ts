@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import * as Sentry from "@sentry/nextjs";
 import { getRelevantProcesses, UserProfile } from "@/lib/knowledge";
 import { SYSTEM_PROMPT, buildMessages, HistoryMessage } from "@/lib/prompt";
 import { checkRateLimit } from "@/lib/rateLimit";
@@ -22,6 +23,7 @@ function getClientIp(req: NextRequest): string {
 export async function POST(req: NextRequest) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
+    Sentry.captureMessage("GEMINI_API_KEY is not configured", "error");
     return NextResponse.json(
       { error: "Server configuration error: missing API key." },
       { status: 500 }
@@ -91,6 +93,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.error("Gemini fetch error:", err);
+    Sentry.captureException(err);
     return NextResponse.json(
       { error: "Failed to reach the AI service. Please try again." },
       { status: 502 }
@@ -110,6 +113,10 @@ export async function POST(req: NextRequest) {
   if (!geminiRes.ok) {
     const errText = await geminiRes.text().catch(() => "");
     console.error("Gemini error response:", geminiRes.status, errText);
+    Sentry.captureMessage(`Gemini error response: ${geminiRes.status}`, {
+      level: "error",
+      extra: { status: geminiRes.status, body: errText.slice(0, 500) },
+    });
     return NextResponse.json(
       { error: "AI service error. Please try again later." },
       { status: 502 }
