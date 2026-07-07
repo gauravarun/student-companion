@@ -217,33 +217,29 @@ export default function Home() {
       const data = await res.json();
 
       if (!res.ok) {
-        setMessages((prev) =>
-          [
-            ...prev,
-            { role: "assistant", text: data.error ?? "Something went wrong. Please try again.", error: true },
-          ].slice(-MAX_STORED_MESSAGES)
-        );
+        const errMsg: Message = {
+          role: "assistant",
+          text: data.error ?? "Something went wrong. Please try again.",
+          error: true,
+        };
+        setMessages((prev) => [...prev, errMsg].slice(-MAX_STORED_MESSAGES));
       } else {
-        setMessages((prev) =>
-          [
-            ...prev,
-            {
-              role: "assistant",
-              text: data.answer,
-              sources: data.sources ?? [],
-              verified: data.verified ?? null,
-            },
-          ].slice(-MAX_STORED_MESSAGES)
-        );
+        const replyMsg: Message = {
+          role: "assistant",
+          text: data.answer,
+          sources: data.sources ?? [],
+          verified: data.verified ?? null,
+        };
+        setMessages((prev) => [...prev, replyMsg].slice(-MAX_STORED_MESSAGES));
       }
     } catch (err) {
       console.error("[SCB]", err);
-      setMessages((prev) =>
-        [
-          ...prev,
-          { role: "assistant", text: "Network error — please check your connection.", error: true },
-        ].slice(-MAX_STORED_MESSAGES)
-      );
+      const netErrMsg: Message = {
+        role: "assistant",
+        text: "Network error — please check your connection.",
+        error: true,
+      };
+      setMessages((prev) => [...prev, netErrMsg].slice(-MAX_STORED_MESSAGES));
     } finally {
       setLoading(false);
     }
