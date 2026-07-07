@@ -767,6 +767,174 @@
     "verification_status": "verified"
   },
   {
+    "id": "work_permit_after_studies",
+    "title": "Work Permit After Studies (Aufenthaltserlaubnis zur Beschäftigung / EU Blue Card)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "Once you have a job offer matching your qualification — whether straight after graduation or during your 18-month job-seeker permit — you must convert your residence status into an employment-authorised permit before your current permit expires. Two routes exist: the general qualified-employment permit (Aufenthaltserlaubnis zur Beschäftigung, §18a/§18b AufenthG) or the EU Blue Card (Blaue Karte EU, §18g AufenthG) for higher-earning roles. The route you take also affects how quickly you can later qualify for permanent settlement.",
+    "deadline": "Apply before your current student (§16b) or job-seeker (§20) permit expires. Book your LEA Berlin appointment as soon as you sign a contract — do not wait for your current permit to near expiry.",
+    "cost": "Approximately €100 (standard residence permit fee as of 2025; confirm the exact amount at your appointment)",
+    "prerequisites": ["residence_permit_student"],
+    "documents_required": [
+      "Valid passport",
+      "Current residence permit / eAT card",
+      "Signed employment contract or binding job offer (must state position, gross salary, start date, and weekly hours)",
+      "Degree certificate (Zeugnis/Urkunde) confirming completion",
+      "Current Anmeldebestätigung",
+      "Proof of health insurance (standard employee rate, not the student rate)",
+      "Biometric passport photos (35x45mm, recent)",
+      "Fee payment"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Determine which route fits: EU Blue Card or standard qualified-employment permit",
+        "detail": "The EU Blue Card (§18g AufenthG) applies if your job matches your qualification and the salary meets the government's annual threshold: at least 50% of the annual pension contribution ceiling (Beitragsbemessungsgrenze) for most professions, or a reduced 45.3% threshold for shortage occupations (IT, engineering, healthcare and related ISCO groups), for graduates within three years of their degree, or for IT specialists with 3+ years of relevant experience but no degree. These thresholds are recalculated every January — check the current euro figures on the official BAMF Blue Card page before applying. Employment below the threshold generally falls under the standard qualified-employment permit (§18a/§18b AufenthG) instead.",
+        "official_link": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/BlaueKarteEU/blauekarteeu-node.html"
+      },
+      {
+        "order": 2,
+        "action": "Have your employer confirm the contract terms in writing before booking your appointment",
+        "detail": "The LEA checks that the position, salary, start date, and weekly hours match your qualification. Get the signed contract or a binding written offer before you book — verbal offers are not accepted.",
+        "official_link": "https://www.make-it-in-germany.com/en/visa-residence/types/eu-blue-card"
+      },
+      {
+        "order": 3,
+        "action": "Book your LEA Berlin appointment as soon as you sign",
+        "detail": "Select 'Aufenthaltserlaubnis zur Beschäftigung' or 'Blaue Karte EU' depending on your route. Appointments fill up 4–8 weeks in advance, same as other LEA services — do not wait until your current permit is close to expiring.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 4,
+        "action": "Attend the appointment with all documents and pay the fee",
+        "detail": "Bring originals and copies of everything. If in order, you receive a Fiktionsbescheinigung while the new eAT card is produced.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 5,
+        "action": "Switch your health insurance to the standard employee rate",
+        "detail": "Your reduced student-rate public insurance ends once you are no longer enrolled as a student. Notify your insurer of your new employment status before or immediately after your appointment.",
+        "official_link": "https://www.tk.de/en/service/international/coming-to-germany/insurance-cover-for-students-2010504"
+      },
+      {
+        "order": 6,
+        "action": "Start tracking your qualifying employment period and pension contributions",
+        "detail": "From your start date, your months of qualifying employment and pension contributions count toward eligibility for a permanent settlement permit (Niederlassungserlaubnis) — see the separate settlement permit process.",
+        "official_link": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html"
+      }
+    ],
+    "common_mistakes": [
+      "Waiting until the student or job-seeker permit is close to expiring before booking the LEA appointment.",
+      "Assuming any job qualifies — the role generally must match your field of study or count as recognised skilled employment.",
+      "Not checking the current year's Blue Card salary threshold before choosing a route — it is recalculated every January.",
+      "Forgetting to switch off the student-rate health insurance once employed.",
+      "Submitting a verbal or informal job offer instead of a signed contract with salary, start date, and hours stated."
+    ],
+    "official_sources": [
+      {
+        "title": "BAMF – The EU Blue Card",
+        "url": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/BlaueKarteEU/blauekarteeu-node.html"
+      },
+      {
+        "title": "Make it in Germany – EU Blue Card",
+        "url": "https://www.make-it-in-germany.com/en/visa-residence/types/eu-blue-card"
+      },
+      {
+        "title": "German Residence Act §18g AufenthG (Blaue Karte EU)",
+        "url": "https://www.gesetze-im-internet.de/aufenthg_2004/__18g.html"
+      }
+    ],
+    "last_verified": "2026-07-07",
+    "verification_status": "verified"
+  },
+  {
+    "id": "settlement_permit_graduate",
+    "title": "Permanent Settlement Permit for Graduates (Niederlassungserlaubnis)",
+    "category": "immigration",
+    "city": "berlin",
+    "applies_to": {
+      "residency_status": ["non_eu_citizen"],
+      "student": null
+    },
+    "why_it_matters": "The Niederlassungserlaubnis is an unlimited settlement permit — once granted, you no longer need to renew or extend your residence status, and it removes work restrictions entirely. Graduates of German universities qualify faster than the general foreign-worker timeline, and it is the main stepping stone toward German citizenship (Einbürgerung) later on.",
+    "deadline": "No fixed deadline — apply once you reach the minimum months of qualifying employment and pension contributions described below.",
+    "cost": "€73.50 for university degree holders applying via the qualified-skilled-worker route; €56.50 for EU Blue Card holders or other skilled workers (Berlin LEA fees as of 2025; confirm current fee at your appointment)",
+    "prerequisites": ["work_permit_after_studies"],
+    "documents_required": [
+      "Valid passport",
+      "Current residence permit (Aufenthaltserlaubnis §18a/§18b or EU Blue Card)",
+      "Employment contract",
+      "Last 6 months of payslips",
+      "Proof of pension insurance contributions for the qualifying period",
+      "Proof of health insurance",
+      "German language certificate (B1, or A1 for the Blue Card fast track — see steps)",
+      "Proof of adequate housing (rental contract or equivalent) and secured income without relying on social benefits"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "Check which timeline applies to your permit type",
+        "detail": "Standard qualified-employment permit (§18a/§18b) holders: 3 years in qualifying employment with 36 months of pension contributions and B1 German — shortened to 2 years / 24 months if you completed your degree or vocational training in Germany, which covers most graduates of this checklist. EU Blue Card (§18g) holders: 27 months of qualifying employment with basic (A1-level) German, shortened to 21 months with B1 German.",
+        "official_link": "https://www.gesetze-im-internet.de/aufenthg_2004/__18c.html"
+      },
+      {
+        "order": 2,
+        "action": "Get your German language level certified",
+        "detail": "You need a recognised certificate (e.g. telc, Goethe-Institut) at B1, or A1 if applying on the 27-month Blue Card track. Book the test well in advance — certificates can take weeks to arrive.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 3,
+        "action": "Collect proof of pension contributions and payslips",
+        "detail": "Request a contribution summary (Versicherungsverlauf) from Deutsche Rentenversicherung and gather your last 6 months of payslips. The LEA checks that contributions and income are continuous for the qualifying period.",
+        "official_link": "https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/"
+      },
+      {
+        "order": 4,
+        "action": "Run the Quick-Check and submit your online application",
+        "detail": "Berlin's LEA offers an online Quick-Check to confirm eligibility before you apply, followed by an online application with document uploads (PDF/JPG/PNG, max 7MB per file). Pay the fee online by card or PayPal.",
+        "official_link": "https://service.berlin.de/dienstleistung/326558/en/"
+      },
+      {
+        "order": 5,
+        "action": "Attend your interview appointment",
+        "detail": "After document review, the LEA schedules an interview. Bring all originals. Approval typically takes a minimum of four weeks after the interview before the permit is issued.",
+        "official_link": "https://service.berlin.de/dienstleistung/326558/en/"
+      }
+    ],
+    "common_mistakes": [
+      "Applying before reaching the full months of qualifying employment and pension contributions for your permit type.",
+      "Missing the German language certificate requirement — B1 (or A1 for the Blue Card fast track) must be proven with a recognised certificate, not self-assessed.",
+      "Not realising that completing your degree in Germany shortens the standard 3-year/36-month timeline to 2 years/24 months.",
+      "Gaps in pension contributions (e.g. unemployment between jobs) that break the continuous qualifying period.",
+      "Assuming this permit is automatic after enough years — it must be actively applied for with a full document set."
+    ],
+    "official_sources": [
+      {
+        "title": "Berlin.de – Permanent settlement permit for qualified skilled workers",
+        "url": "https://service.berlin.de/dienstleistung/326558/en/"
+      },
+      {
+        "title": "Berlin.de – Permanent settlement permit for EU Blue Card holders",
+        "url": "https://service.berlin.de/dienstleistung/326556/en/"
+      },
+      {
+        "title": "BAMF – Settling in Germany",
+        "url": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html"
+      },
+      {
+        "title": "German Residence Act §18c AufenthG",
+        "url": "https://www.gesetze-im-internet.de/aufenthg_2004/__18c.html"
+      }
+    ],
+    "last_verified": "2026-07-07",
+    "verification_status": "verified"
+  },
+  {
     "id": "rundfunkbeitrag",
     "title": "Broadcasting Fee Registration (Rundfunkbeitrag)",
     "category": "registration",
