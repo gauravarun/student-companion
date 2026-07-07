@@ -297,14 +297,16 @@ strong { color: var(--tinte); font-weight: 600; }
 /* Topbar — the form header strip */
 .chat-topbar {
   flex-shrink: 0;
-  height: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22px;
+  padding: 8px 22px;
   border-bottom: 1px solid var(--linie-dark);
   background: var(--blatt);
   gap: 12px;
+  flex-wrap: wrap;
+  row-gap: 6px;
 }
 .topbar-left {
   display: flex;
@@ -314,6 +316,8 @@ strong { color: var(--tinte); font-weight: 600; }
   min-width: 0;
 }
 .topbar-sep { color: var(--linie-dark); font-size: 11px; user-select: none; }
+.topbar-status { display: contents; }
+.topbar-status--compact { display: none; }
 
 /* Profile chips — typewritten field values */
 .profile-chip {
@@ -336,6 +340,9 @@ strong { color: var(--tinte); font-weight: 600; }
 
 .clear-btn {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   background: transparent;
   border: 1px solid var(--linie-dark);
   border-radius: var(--r-sm);
@@ -348,6 +355,7 @@ strong { color: var(--tinte); font-weight: 600; }
 }
 .clear-btn:hover:not(:disabled) { color: var(--stempelrot); border-color: var(--stempelrot); }
 .clear-btn:disabled { opacity: 0.35; cursor: default; }
+.clear-btn-icon { flex-shrink: 0; }
 
 .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .view-toggle {
@@ -966,16 +974,26 @@ strong { color: var(--tinte); font-weight: 600; }
   .sidebar-close { display: inline-flex; }
 
   .chat-messages { padding: 20px 14px 12px; }
-  .input-bar { padding: 10px 14px 14px; }
+  .input-bar {
+    padding: 10px 14px calc(14px + env(safe-area-inset-bottom));
+  }
   .msg-row--user { max-width: 100%; }
   .msg-row--assistant { max-width: 100%; }
-  .chat-topbar { padding: 0 12px; height: 48px; }
+  .chat-topbar { padding: 8px 12px; min-height: 46px; gap: 8px; }
+  .menu-btn { width: 34px; height: 34px; }
+
+  /* One compact status chip replaces the three-chip cluster — the full
+     set wraps to a second line and overlaps the message area below the
+     topbar's fixed height at narrow widths. */
+  .topbar-status--full { display: none; }
+  .topbar-status--compact { display: inline-flex; }
 
   .topbar-sep { display: none; }
   .chip--berlin { display: none; }
   .profile-chip { font-size: 10px; padding: 3px 7px; }
-  .clear-btn { font-size: 10px; padding: 4px 8px; }
-  .view-tab { font-size: 10px; padding: 4px 9px; }
+  .clear-btn { padding: 6px; }
+  .clear-btn-label { display: none; }
+  .view-tab { font-size: 10.5px; padding: 6px 10px; }
   .topbar-right { gap: 6px; }
   .checklist-view { padding: 18px 14px 28px; }
   .checklist-title { font-size: 19px; }

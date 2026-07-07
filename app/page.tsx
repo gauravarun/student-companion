@@ -104,6 +104,18 @@ function ExternalIcon() {
   );
 }
 
+function ClearIcon() {
+  return (
+    <svg className="clear-btn-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path
+        d="M2 2l8 8m0-8l-8 8"
+        stroke="currentColor" strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 function SendIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -366,13 +378,18 @@ export default function Home() {
                 <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
               </svg>
             </button>
-            <span className={`profile-chip ${residencyChipClass}`}>{residencyLabel}</span>
-            <span className="topbar-sep">·</span>
-            <span className={`profile-chip ${studentChipClass}`}>
-              {isStudent ? "Student" : "Non-student"}
+            <span className="topbar-status topbar-status--full">
+              <span className={`profile-chip ${residencyChipClass}`}>{residencyLabel}</span>
+              <span className="topbar-sep">·</span>
+              <span className={`profile-chip ${studentChipClass}`}>
+                {isStudent ? "Student" : "Non-student"}
+              </span>
+              <span className="topbar-sep">·</span>
+              <span className="profile-chip chip--violet chip--berlin">Berlin</span>
             </span>
-            <span className="topbar-sep">·</span>
-            <span className="profile-chip chip--violet chip--berlin">Berlin</span>
+            <span className={`profile-chip topbar-status--compact ${residencyChipClass}`}>
+              {residencyLabel} · {isStudent ? "Student" : "Non-student"}
+            </span>
           </div>
           <div className="topbar-right">
             <div className="view-toggle">
@@ -396,8 +413,10 @@ export default function Home() {
               className="clear-btn"
               onClick={() => setMessages([])}
               disabled={messages.length === 0}
+              aria-label="Clear chat"
             >
-              Clear chat
+              <ClearIcon />
+              <span className="clear-btn-label">Clear chat</span>
             </button>
           </div>
         </div>
@@ -577,7 +596,7 @@ export default function Home() {
               ref={textareaRef}
               className="chat-input"
               rows={1}
-              placeholder="Ask a question, or press Enter for your full checklist…"
+              placeholder="Ask a question…"
               value={input}
               onChange={(e) => { setInput(e.target.value); autoResize(); }}
               onKeyDown={handleKeyDown}
