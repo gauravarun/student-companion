@@ -30,8 +30,11 @@ export async function POST(req: NextRequest) {
 
   const { allowed, retryAfterSeconds } = checkRateLimit(getClientIp(req));
   if (!allowed) {
+    const wait = retryAfterSeconds
+      ? ` Please wait ${retryAfterSeconds}s and try again.`
+      : " Please wait a moment and try again.";
     return NextResponse.json(
-      { error: "Too many requests. Please wait a moment and try again." },
+      { error: `Too many requests.${wait}` },
       {
         status: 429,
         headers: retryAfterSeconds

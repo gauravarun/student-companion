@@ -17,6 +17,7 @@ const MESSAGES_KEY = "scb-messages";
 const PROFILE_KEY = "scb-profile";
 const CHECKLIST_KEY = "scb-checklist-done";
 const STALE_MS = 182 * 24 * 60 * 60 * 1000; // ~6 months
+const MAX_STORED_MESSAGES = 100; // cap localStorage growth over long sessions
 
 function isStale(dateStr: string): boolean {
   const verified = new Date(dateStr);
@@ -200,7 +201,7 @@ export default function Home() {
       .filter((m) => !m.error)
       .slice(-10)
       .map((m) => ({ role: m.role, text: m.text }));
-    setMessages((prev) => [...prev, userMsg]);
+    setMessages((prev) => [...prev, userMsg].slice(-MAX_STORED_MESSAGES));
     setLoading(true);
 
     try {
@@ -216,27 +217,33 @@ export default function Home() {
       const data = await res.json();
 
       if (!res.ok) {
-        setMessages((prev) => [
-          ...prev,
-          { role: "assistant", text: data.error ?? "Something went wrong. Please try again.", error: true },
-        ]);
+        setMessages((prev) =>
+          [
+            ...prev,
+            { role: "assistant", text: data.error ?? "Something went wrong. Please try again.", error: true },
+          ].slice(-MAX_STORED_MESSAGES)
+        );
       } else {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            text: data.answer,
-            sources: data.sources ?? [],
-            verified: data.verified ?? null,
-          },
-        ]);
+        setMessages((prev) =>
+          [
+            ...prev,
+            {
+              role: "assistant",
+              text: data.answer,
+              sources: data.sources ?? [],
+              verified: data.verified ?? null,
+            },
+          ].slice(-MAX_STORED_MESSAGES)
+        );
       }
     } catch (err) {
       console.error("[SCB]", err);
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", text: "Network error — please check your connection.", error: true },
-      ]);
+      setMessages((prev) =>
+        [
+          ...prev,
+          { role: "assistant", text: "Network error — please check your connection.", error: true },
+        ].slice(-MAX_STORED_MESSAGES)
+      );
     } finally {
       setLoading(false);
     }
@@ -314,7 +321,12 @@ export default function Home() {
                 key={q}
                 type="button"
                 className="hint-btn"
-                onClick={() => { setInput(q); setSidebarOpen(false); textareaRef.current?.focus(); }}
+                onClick={() => {
+                  setView("chat");
+                  setInput(q);
+                  setSidebarOpen(false);
+                  textareaRef.current?.focus();
+                }}
               >
                 <span className="hint-arrow">→</span>
                 {q}
