@@ -115,8 +115,13 @@ export default function Home() {
   const [hydrated, setHydrated] = useState(false);
   const [view, setView] = useState<"chat" | "checklist">("chat");
   const [doneSteps, setDoneSteps] = useState<Set<string>>(new Set());
+  const [todayLabel, setTodayLabel] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    setTodayLabel(new Date().toISOString().slice(0, 10));
+  }, []);
 
   const processes = useMemo(
     () => getRelevantProcesses({ city: "berlin", residency_status: residency, is_student: isStudent }),
@@ -466,24 +471,33 @@ export default function Home() {
         <div className="chat-messages">
           {messages.length === 0 && !loading && (
             <div className="chat-empty">
-              <div className="empty-icon">SCB</div>
-              <p className="empty-title">German bureaucracy,<br />in plain English</p>
-              <p className="empty-sub">
-                Anmeldung, residence permit, blocked account — ask about any official
-                step, or get your full checklist in the right order. Every answer
-                cites official Berlin sources.
-              </p>
-              <div className="empty-suggestions">
-                {SUGGESTIONS.map((q) => (
-                  <button
-                    key={q}
-                    type="button"
-                    className="empty-pill"
-                    onClick={() => void send(q)}
-                  >
-                    {q}
-                  </button>
-                ))}
+              <div className="hero-sheet">
+                <p className="hero-eyebrow">
+                  FILE OPENED {todayLabel} &nbsp;·&nbsp; {residencyLabel.toUpperCase()} &nbsp;·&nbsp;{" "}
+                  {isStudent ? "STUDENT" : "NON-STUDENT"} &nbsp;·&nbsp; BERLIN
+                </p>
+                <p className="empty-title">German bureaucracy,<br />in plain English</p>
+                <p className="empty-sub">
+                  Anmeldung, residence permit, blocked account — ask about any official
+                  step, or get your full checklist in the right order. Every answer
+                  cites official Berlin sources.
+                </p>
+                <div className="hero-topics">
+                  <p className="hero-topics-label">Or start from a common question</p>
+                  <div className="empty-suggestions">
+                    {SUGGESTIONS.map((q) => (
+                      <button
+                        key={q}
+                        type="button"
+                        className="empty-pill"
+                        onClick={() => void send(q)}
+                      >
+                        <span className="empty-pill-box" />
+                        <span>{q}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           )}
