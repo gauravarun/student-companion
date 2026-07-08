@@ -451,6 +451,8 @@ export default function Home() {
           Berlin only · Official sources only
           <br />
           Not legal or immigration advice
+          <br />
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </aside>
 

@@ -1037,6 +1037,93 @@ strong { color: var(--tinte); font-weight: 600; }
   letter-spacing: 0.01em;
 }
 
+/* ─────────────────────────────────────────────────── *
+ * LEGAL PAGES — a plain-language circular, not a chat view
+ * ───────────────────────────────────────────────── */
+.legal-shell {
+  min-height: 100dvh;
+  background-color: var(--papier);
+  background-image: repeating-linear-gradient(
+    to bottom, transparent, transparent 31px, var(--ruled-line) 32px
+  );
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px 64px;
+}
+.legal-doc {
+  max-width: 680px;
+  width: 100%;
+  background: var(--blatt);
+  border: 1px solid var(--linie-dark);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-card);
+  padding: 36px 40px 44px;
+}
+.legal-back {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--tinte-3);
+  margin-bottom: 22px;
+}
+.legal-back:hover { color: var(--amtsblau); text-decoration: none; }
+.legal-eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--tinte-3);
+  letter-spacing: 0.06em;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed var(--linie-dark);
+}
+.legal-title {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--tinte);
+}
+.legal-sub {
+  font-size: 13.5px;
+  color: var(--tinte-2);
+  line-height: 1.7;
+  margin-top: 10px;
+  max-width: 520px;
+}
+.legal-section { margin-top: 26px; }
+.legal-section h2 {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amtsblau);
+  margin-bottom: 6px;
+}
+.legal-section p {
+  font-size: 13.5px;
+  color: var(--tinte-2);
+  line-height: 1.75;
+}
+.legal-section a { color: var(--amtsblau); }
+.legal-section a:hover { text-decoration: underline; }
+.legal-disclaimer {
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--linie-dark);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--tinte-3);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .legal-shell { padding: 28px 16px 44px; }
+  .legal-doc { padding: 24px 20px 30px; }
+  .legal-title { font-size: 24px; }
+}
+
 /* ─── Mobile ─────────────────────────────────────── */
 @media (max-width: 640px) {
   .sidebar {
