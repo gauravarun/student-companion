@@ -215,6 +215,14 @@ export default function Home() {
     setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
   }, []);
 
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch((err) => {
+        console.error("[SCB] Service worker registration failed", err);
+      });
+    }
+  }, []);
+
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -38,6 +38,16 @@ export const metadata: Metadata = {
   title: "Student Companion Berlin",
   description:
     "Grounded guidance for international students navigating official setup tasks in Berlin — Anmeldung, residence permit, blocked account, and more.",
+  appleWebApp: {
+    capable: true,
+    title: "SCB Berlin",
+    statusBarStyle: "black-translucent",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#18181c",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
