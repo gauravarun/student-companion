@@ -160,5 +160,10 @@ export async function POST(req: NextRequest) {
     ? usedProcesses.map((p) => p.last_verified).sort()[0]
     : null;
 
-  return NextResponse.json({ answer, sources: uniqueSources, verified });
+  // Internal topic ids only (e.g. "work_permit_after_studies") — never the
+  // literal question text — so usage analytics can show which knowledge-base
+  // topics get asked about without recording anything a user typed.
+  const topicIds = usedProcesses.map((p) => p.id);
+
+  return NextResponse.json({ answer, sources: uniqueSources, verified, topicIds });
 }

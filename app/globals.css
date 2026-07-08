@@ -43,6 +43,10 @@
   /* Highlighter — text selection only */
   --textmarker: #ffe600;
 
+  /* Surface texture + depth — swapped per theme */
+  --ruled-line: rgba(28, 28, 33, 0.035);
+  --shadow-card: 0 1px 3px rgba(28, 28, 33, 0.06);
+
   /* Type */
   --display: var(--font-display), "Arial Narrow", sans-serif;
   --body:    var(--font-body), "Segoe UI", sans-serif;
@@ -57,6 +61,49 @@
   --t: 0.13s ease;
 }
 
+/* Dark — the same form, read by desk lamp instead of daylight */
+:root[data-theme="dark"] {
+  --papier:  #18181c;
+  --blatt:   #201f25;
+  --karton:  #1c1b20;
+
+  --tinte:    #e9e7e2;
+  --tinte-2:  #a4a1ab;
+  --tinte-3:  #6f6c78;
+
+  --amtsblau:       #6c9bf2;
+  --amtsblau-dark:  #8ab0f5;
+  --amtsblau-bg:    #1c2740;
+  --amtsblau-line:  #33456e;
+
+  --stempelrot:      #e17e6f;
+  --stempelrot-bg:   #3a231f;
+
+  --tab-teal:     #6ecdbf;
+  --tab-teal-bg:  #16302c;
+  --tab-teal-ln:  #2a5850;
+
+  --tab-amber:      #e3bb6c;
+  --tab-amber-bg:   #362b14;
+  --tab-amber-ln:   #5c4a22;
+
+  --tab-moss:     #aad677;
+  --tab-moss-bg:  #253018;
+  --tab-moss-ln:  #445c2a;
+
+  --tab-plum:     #cdaae2;
+  --tab-plum-bg:  #2c2233;
+  --tab-plum-ln:  #4d3c5c;
+
+  --linie:       #2d2c33;
+  --linie-dark:  #3b3a42;
+
+  --textmarker: #7a6600;
+
+  --ruled-line: rgba(255, 255, 255, 0.035);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
 ::selection { background: var(--textmarker); color: var(--tinte); }
 
 /* ─── Base ───────────────────────────────────────── */
@@ -69,6 +116,10 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
+  transition: background-color var(--t), color var(--t);
+}
+.shell, .sidebar, .chat-topbar, .input-bar {
+  transition: background-color var(--t), border-color var(--t);
 }
 a { color: var(--amtsblau); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -230,6 +281,9 @@ strong { color: var(--tinte); font-weight: 600; }
   border-color: var(--amtsblau);
   box-shadow: 0 0 0 3px var(--amtsblau-bg);
 }
+:root[data-theme="dark"] .field-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a4a1ab' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
 
 /* Hints */
 .sidebar-hints {
@@ -290,7 +344,7 @@ strong { color: var(--tinte); font-weight: 600; }
     to bottom,
     transparent,
     transparent 31px,
-    rgba(28, 28, 33, 0.035) 32px
+    var(--ruled-line) 32px
   );
 }
 
@@ -356,6 +410,21 @@ strong { color: var(--tinte); font-weight: 600; }
 .clear-btn:hover:not(:disabled) { color: var(--stempelrot); border-color: var(--stempelrot); }
 .clear-btn:disabled { opacity: 0.35; cursor: default; }
 .clear-btn-icon { flex-shrink: 0; }
+
+.theme-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--linie-dark);
+  border-radius: var(--r-sm);
+  color: var(--tinte-2);
+  transition: color var(--t), border-color var(--t);
+}
+.theme-btn:hover { color: var(--amtsblau); border-color: var(--amtsblau-line); }
 
 .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .view-toggle {
@@ -437,7 +506,7 @@ strong { color: var(--tinte); font-weight: 600; }
   border-radius: var(--r-md);
   padding: 16px 18px;
   margin-bottom: 14px;
-  box-shadow: 0 1px 3px rgba(28, 28, 33, 0.06);
+  box-shadow: var(--shadow-card);
   transition: opacity var(--t);
 }
 .checklist-card--done { opacity: 0.6; }
@@ -529,7 +598,7 @@ strong { color: var(--tinte); font-weight: 600; }
   background: var(--blatt);
   border: 1px solid var(--linie-dark);
   border-radius: var(--r-md);
-  box-shadow: 0 1px 3px rgba(28, 28, 33, 0.06);
+  box-shadow: var(--shadow-card);
   max-width: 560px;
   width: 100%;
   padding: 26px 30px 28px;
@@ -684,7 +753,7 @@ strong { color: var(--tinte); font-weight: 600; }
   border: 1px solid var(--linie-dark);
   border-bottom-left-radius: var(--r-xs);
   color: var(--tinte);
-  box-shadow: 0 1px 3px rgba(28, 28, 33, 0.06);
+  box-shadow: var(--shadow-card);
   padding-left: 26px;
   position: relative;
 }
@@ -1017,4 +1086,29 @@ strong { color: var(--tinte); font-weight: 600; }
   .empty-title { font-size: 24px; }
   .chat-empty { padding: 20px 14px; }
   .hero-sheet { padding: 20px 18px 22px; }
+}
+
+/* ─────────────────────────────────────────────────── *
+ * CHECKLIST HEADER ACTIONS (Reset + Export)
+ * ───────────────────────────────────────────────── */
+.checklist-header-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ─────────────────────────────────────────────────── *
+ * PRINT — the checklist, as a takeaway sheet
+ * ───────────────────────────────────────────────── */
+@media print {
+  :root, :root[data-theme="dark"] {
+    --papier: #fff; --blatt: #fff; --karton: #fff;
+    --tinte: #000; --tinte-2: #333; --tinte-3: #555;
+    --linie: #ccc; --linie-dark: #999;
+    --amtsblau: #1e4fa3; --shadow-card: none;
+  }
+  .sidebar, .sidebar-backdrop, .chat-topbar, .input-bar, .checklist-header-actions {
+    display: none !important;
+  }
+  .shell { display: block; height: auto; overflow: visible; }
+  body { overflow: visible; }
+  .chat-shell { background: none; overflow: visible; }
+  .checklist-view { max-width: 100%; overflow: visible; padding: 0; }
+  .checklist-card { box-shadow: none; break-inside: avoid; }
 }

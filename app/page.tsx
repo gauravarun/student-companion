@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import * as Sentry from "@sentry/nextjs";
+import { track } from "@vercel/analytics";
 import { getRelevantProcesses, type OfficialSource } from "@/lib/knowledge";
 
 type ResidencyStatus = "eu_citizen" | "non_eu_citizen";
@@ -17,6 +18,7 @@ interface Message {
 const MESSAGES_KEY = "scb-messages";
 const PROFILE_KEY = "scb-profile";
 const CHECKLIST_KEY = "scb-checklist-done";
+const THEME_KEY = "scb-theme";
 const STALE_MS = 182 * 24 * 60 * 60 * 1000; // ~6 months
 const MAX_STORED_MESSAGES = 100; // cap localStorage growth over long sessions
 
@@ -160,6 +162,29 @@ function FlagIcon() {
   );
 }
 
+function SunIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="7" r="3" stroke="currentColor" strokeWidth="1.3" />
+      <path
+        d="M7 1v1.4M7 11.6V13M1 7h1.4M11.6 7H13M2.8 2.8l1 1M10.2 10.2l1 1M11.2 2.8l-1 1M3.8 10.2l-1 1"
+        stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path
+        d="M12 8.3A5.3 5.3 0 1 1 5.7 2a4.2 4.2 0 0 0 6.3 6.3z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 function SendIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -179,12 +204,23 @@ export default function Home() {
   const [view, setView] = useState<"chat" | "checklist">("chat");
   const [doneSteps, setDoneSteps] = useState<Set<string>>(new Set());
   const [todayLabel, setTodayLabel] = useState("");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     setTodayLabel(new Date().toISOString().slice(0, 10));
+    // The inline script in layout.tsx already set this before paint —
+    // just read it back so the toggle button shows the right icon.
+    setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
   }, []);
+
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem(THEME_KEY, next);
+  }
 
   const processes = useMemo(
     () => getRelevantProcesses({ city: "berlin", residency_status: residency, is_student: isStudent }),
@@ -299,6 +335,9 @@ export default function Home() {
           verified: data.verified ?? null,
         };
         setMessages((prev) => [...prev, replyMsg].slice(-MAX_STORED_MESSAGES));
+        // Topic ids only — never the question text — so we can see which
+        // knowledge-base entries get used without recording what anyone asked.
+        track("topic_asked", { topics: (data.topicIds ?? []).join(",") || "none" });
       }
     } catch (err) {
       console.error("[SCB]", err);
@@ -437,6 +476,14 @@ export default function Home() {
             </span>
           </div>
           <div className="topbar-right">
+            <button
+              type="button"
+              className="theme-btn"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </button>
             <div className="view-toggle">
               <button
                 type="button"
@@ -474,14 +521,27 @@ export default function Home() {
                 <h2 className="checklist-title">Your Checklist</h2>
                 <p className="checklist-sub">{doneCount} of {totalSteps} steps completed</p>
               </div>
-              <button
-                type="button"
-                className="clear-btn"
-                onClick={() => setDoneSteps(new Set())}
-                disabled={doneSteps.size === 0}
-              >
-                Reset checklist
-              </button>
+              <div className="checklist-header-actions">
+                <button
+                  type="button"
+                  className="clear-btn"
+                  onClick={() => {
+                    track("checklist_exported");
+                    window.print();
+                  }}
+                  disabled={totalSteps === 0}
+                >
+                  Export PDF
+                </button>
+                <button
+                  type="button"
+                  className="clear-btn"
+                  onClick={() => setDoneSteps(new Set())}
+                  disabled={doneSteps.size === 0}
+                >
+                  Reset checklist
+                </button>
+              </div>
             </div>
             <div className="checklist-progress-track">
               <div className="checklist-progress-fill" style={{ width: `${checklistPct}%` }} />
