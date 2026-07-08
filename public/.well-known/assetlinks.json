@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.studentcompanionberlin.twa",
+        "sha256_cert_fingerprints": ["E4:0D:A6:2B:F1:0A:64:9C:3F:BD:26:4C:1E:10:D7:7A:BE:64:46:AF:25:E4:DF:DF:B3:3C:FB:10:6D:2B:5E:94"]
+      }
+    }]

@@ -17,3 +17,9 @@ next-env.d.ts
 # misc
 .DS_Store
 *.log
+
+# Android signing key — never commit. Losing it just means resetting Play
+# App Signing's upload key; committing it is a permanent compromise.
+*.keystore
+*.jks
+signing-key-info.txt
